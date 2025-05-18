@@ -1,0 +1,51 @@
+@font-face {
+    font-family: 'CustomFont';
+    src: url('../fonts/CustomFont.woff2') format('woff2'),
+         url('../fonts/CustomFont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'CustomFont', sans-serif;
+    background-color: #f7f5f2;
+    color: #2f2e2e;
+}
+
+h1, h2, h3 {
+    color: #08cef5;
+}
+
+a {
+    color: #08cef5;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.header, .footer {
+    background-color: #ffffff;
+    padding: 20px;
+    text-align: center;
+}
+
+.section {
+    padding: 40px 20px;
+}
+
+.card {
+    background-color: #ffffff;
+    border: 1px solid #2f2e2e;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+}
+
+.card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}

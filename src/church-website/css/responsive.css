@@ -1,0 +1,104 @@
+/* Responsive styles for the church website */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Header styles */
+header {
+    background-color: #2f2e2e;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Main content styles */
+main {
+    padding: 20px;
+}
+
+/* Photo section */
+.photo-section {
+    background-image: url('../assets/images/hero-image.jpg');
+    background-size: cover;
+    height: 300px;
+}
+
+/* Core values section */
+.core-values {
+    background-color: #f7f5f2;
+    padding: 20px;
+}
+
+/* Service times cards */
+.service-times {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+
+/* Footer styles */
+footer {
+    background-color: #2f2e2e;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .service-times {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 80%;
+    }
+}
+
+@media (max-width: 480px) {
+    header, footer {
+        padding: 10px;
+    }
+
+    .card {
+        width: 100%;
+    }
+}
+
+@media (max-width: 900px) {
+    .main-header {
+        flex-direction: column;
+        height: auto;
+        padding: 12px 8px;
+    }
+    .nav-links {
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 8px;
+    }
+    .card-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .core-values-list {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+@media (max-width: 600px) {
+    .hero-content h1 {
+        font-size: 1.5rem;
+    }
+    .card {
+        width: 95%;
+    }
+    .core-value-card {
+        width: 90%;
+        text-align: center;
+    }
+}
