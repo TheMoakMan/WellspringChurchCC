@@ -151,6 +151,83 @@ The website is now feature-complete with all main pages implemented using real c
 - Contact page with real church information
 - Messages page with live stream and sermon archives
 
+## Recent Updates
+
+### Messages Page Card Redesign (Latest)
+**Date**: December 2024
+**Description**: Completely redesigned message cards for a more visual, modern experience
+
+**Changes Made**:
+- **New Card Layout**: Large video thumbnails with minimal text below
+- **Visual Design**: Cards now feature:
+  - Large 16:9 video containers with gradient backgrounds
+  - Clean white cards with subtle shadows and rounded corners
+  - Hover effects with elevation and scale transitions
+  - Play button overlay on hover for better UX
+- **Simplified Content**: Each card now shows only:
+  - Video title (shortened, no "New Life Unlocked" prefix)
+  - Date (month/year format)
+  - Removed duration and meta information for cleaner look
+- **Enhanced Animations**: 
+  - Staggered reveal animations for cards on page load
+  - Smooth hover transformations
+  - Loading states for video content
+- **Better Mobile Experience**: 
+  - Single column layout on mobile
+  - Optimized card spacing and typography
+  - Touch-friendly hover states
+
+**Technical Implementation**:
+- Updated HTML structure with new classes (`.message-video-container`, `.message-content`)
+- Enhanced CSS with modern grid layout, animations, and hover effects
+- Improved JavaScript with card interaction handlers and loading state management
+- Added accessibility features (focus states, keyboard navigation)
+
+**Files Updated**:
+- `src/messages.html` - New card structure
+- `src/css/styles.css` - Enhanced card styles and animations
+- `src/js/messages.js` - Card interaction handlers
+
+### Dynamic Featured Video System (Latest)
+**Date**: December 2024
+**Description**: Implemented dynamic featured video system that automatically highlights the most recent sermon
+
+**Changes Made**:
+- **Featured Video Section**: 
+  - Replaced static "Current Series" section with dynamic "Latest Message" section
+  - Featured video automatically populated with most recent YouTube upload
+  - Larger, more prominent display for the latest sermon
+  - Enhanced visual design with card styling and hover effects
+- **Expanded Message Grid**: 
+  - Grid now shows 6 additional videos (formerly 6 total, now 7 total including featured)
+  - Added 7th video slot to show more historical content
+  - Grid starts with 2nd most recent video (since 1st is featured)
+- **Enhanced JavaScript Logic**:
+  - `updateVideoGrid()` now handles featured video separately from grid
+  - `updateFeaturedVideo()` method for managing the prominent video display
+  - Title cleaning logic removes "New Life Unlocked" prefix for cleaner presentation
+  - Date formatting improved for both featured and grid videos
+  - Enhanced card interactions for both featured and grid videos
+
+**Technical Implementation**:
+- Updated HTML structure with featured video section and IDs for dynamic updates
+- Enhanced CSS with featured video card styling and larger play button overlays
+- Modified JavaScript to handle 7 videos total (1 featured + 6 grid)
+- Improved responsive design for featured video section
+- Added hover effects and loading states for featured video
+
+**User Experience**:
+- Latest sermon always prominently featured at top
+- Clear visual hierarchy: featured → grid of recent messages
+- Better content discovery with 7 total videos displayed
+- Consistent branding with clean title presentation
+- Mobile-optimized featured video display
+
+**Files Updated**:
+- `src/messages.html` - New featured video section, expanded grid
+- `src/css/styles.css` - Featured video styling and enhancements  
+- `src/js/messages.js` - Dynamic video population logic
+
 ## Next Steps & Future Enhancements
 
 ### 🔧 FINAL POLISH & REVIEW
@@ -262,3 +339,51 @@ src/
 - **Real Data**: All video IDs, titles, scripture references, and durations from church website
 - **External Links**: Direct links to YouTube channel and social media
 - **Mobile Optimization**: Videos scale properly on all screen sizes
+
+#### 🆕 Dynamic Content Features (messages.js)
+- **YouTube RSS Integration**: Automatically loads recent videos without API key
+- **Boxcast Channel Detection**: Console instructions for finding correct channel ID
+- **Dynamic Video Updates**: Can refresh video content from YouTube channel
+- **Loading States**: Visual indicators while videos load
+- **Error Handling**: Graceful fallbacks when APIs are unavailable
+- **Local Storage**: Saves Boxcast configuration for future visits
+
+#### 🎯 Boxcast Integration Analysis (SOLVED):
+**Discovered from HTTP request analysis:**
+- **Channel ID**: `xelumtbow3yvccvbazko` (confirmed)
+- **Broadcast ID**: `fepy4qhf9q67zkx2jyis` (specific stream)
+- **Host Restriction**: `www-wellspringchurch-cc.filesusr.com` (Wix domain)
+- **Domain Lock**: Boxcast requires specific host parameter to work
+
+**Why it fails on external domains:**
+- Host parameter validation prevents cross-domain embeds
+- Referrer header restrictions from Wix platform
+- CORS policies block external iframe access
+
+**Solutions implemented:**
+1. **Broadcast-specific URLs** with all required parameters
+2. **Multiple fallback URLs** for different embed formats
+3. **Automatic YouTube Live fallback** when Boxcast fails
+4. **Error handling** with progressive URL testing
+5. **Proxy embed approach** for domain restriction bypass
+
+#### Setup Instructions for Live Features:
+1. **Boxcast Channel ID**: ✅ **SOLVED** 
+   - Channel: `xelumtbow3yvccvbazko`
+   - Broadcast: `fepy4qhf9q67zkx2jyis`
+   - Host: `www-wellspringchurch-cc.filesusr.com`
+   - **Issue**: Domain restrictions prevent external embedding
+
+2. **YouTube Live (RECOMMENDED)**:
+   - Automatic fallback when Boxcast fails
+   - Better cross-domain compatibility
+   - Run: `messagesHandler.setupYouTubeLiveEmbed()`
+
+3. **Troubleshooting Commands**:
+   - `messagesHandler.tryAlternativeBoxcastUrl()` - Try broadcast URL
+   - `messagesHandler.testBoxcastConnection()` - Test all endpoints
+   - `switchToYouTubeLive()` - Quick switch to YouTube
+
+4. **CORS Proxy**: 
+   - For production, replace allorigins.win with your own CORS proxy
+   - Or implement server-side YouTube RSS fetching
