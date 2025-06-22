@@ -11,18 +11,22 @@
     <link rel="stylesheet" href="css/animations.css">
 </head>
 <body>
-    <!-- Navigation -->    <nav class="nav-floating unselectable">        <div class="nav-logo">
+    <!-- Navigation -->    <nav class="nav-floating unselectable">
+        <div class="nav-logo">
             <img src="assets/images/wc_logo.avif" alt="Wellspring Church" style="height: 24px;">
             <span class="logo-text">WELLSPRING CHURCH</span>
-        </div><div class="nav-menu">
+        </div>
+        <div class="nav-menu">
             <a href="index.html" class="nav-link">Home</a>
-            <div class="nav-dropdown">
-                <a href="#" class="nav-link dropdown-toggle active">About</a>
+            <div class="nav-dropdown desktop-only">
+                <a href="about.html" class="nav-link dropdown-toggle active">About</a>
                 <div class="dropdown-menu">
                     <a href="about.html" class="dropdown-item">Our Values</a>
                     <a href="team.html" class="dropdown-item">Our Team</a>
                 </div>
             </div>
+            <a href="about.html" class="nav-link mobile-only active">Values</a>
+            <a href="team.html" class="nav-link mobile-only">Team</a>
             <a href="messages.html" class="nav-link">Messages</a>
             <a href="ministries.html" class="nav-link">Ministries</a>
             <a href="contact.html" class="nav-link">Contact</a>
@@ -33,7 +37,7 @@
     <!-- Hero Section -->
     <section class="hero-section" style="height: 60vh;">
         <div class="hero-background">
-            <img src="assets/images/hero.avif" alt="About Wellspring Church" class="hero-bg-image">
+            <img src="assets/images/about_hero.avif" alt="About Wellspring Church" class="hero-bg-image">
             <div class="hero-gradient"></div>
         </div>
         <div class="hero-content">
@@ -43,77 +47,69 @@
             </h1>
             <p class="hero-subtitle">Learn more about our church, mission, and community</p>
         </div>
-    </section>
-
-    <!-- About Content Section -->
+    </section>    <!-- About Content Section -->
     <section class="services-section">
         <div class="section-header">
-            <h2 class="section-title">Our Story</h2>
-            <div class="section-subtitle">Wellspring Church has been serving the Blytheville community for years, committed to Growing, Equipping and Sending Disciples of Jesus Christ.</div>
-        </div>
-        
-        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
-            <div class="services-grid" style="grid-template-columns: 1fr;">
-                <div class="service-card" style="text-align: left;">
-                    <h3 style="color: #87CEEB; margin-bottom: 20px;">Our Mission</h3>
-                    <p style="font-size: 1.1rem; line-height: 1.8; color: #666;">
-                        [Mission statement content will go here. This section will describe the church's primary mission and purpose in the community.]
-                    </p>
-                </div>
-                
-                <div class="service-card" style="text-align: left;">
-                    <h3 style="color: #87CEEB; margin-bottom: 20px;">Our Vision</h3>
-                    <p style="font-size: 1.1rem; line-height: 1.8; color: #666;">
-                        [Vision statement content will go here. This section will outline the church's long-term goals and aspirations for ministry.]
-                    </p>
-                </div>
-                
-                <div class="service-card" style="text-align: left;">
-                    <h3 style="color: #87CEEB; margin-bottom: 20px;">Our History</h3>
-                    <p style="font-size: 1.1rem; line-height: 1.8; color: #666;">
-                        [Church history content will go here. This section will tell the story of how Wellspring Church was founded and has grown over the years.]
-                    </p>
-                </div>
-            </div>
+            <h2 class="section-title">Our Vision</h2>
+            <div class="section-subtitle">Growing, Equipping and Sending Disciples of Jesus</div>
         </div>
     </section>
 
     <!-- Core Values Section -->
-    <section class="values-section">
+    <section id="values" class="values-section">
         <div class="section-header">
-            <h2 class="section-title">What We Believe</h2>
-            <div class="section-subtitle">Our foundational beliefs guide everything we do as a church community</div>
+            <h2 class="section-title">Core Values</h2>
         </div>
-        
-        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
-            <div class="services-grid" style="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));">
-                <div class="service-card" style="text-align: left;">
-                    <h3 style="color: #87CEEB; margin-bottom: 16px;">Scripture</h3>
-                    <p style="color: #666; line-height: 1.6;">
-                        [Belief about Scripture content goes here]
-                    </p>
-                </div>
-                
-                <div class="service-card" style="text-align: left;">
-                    <h3 style="color: #87CEEB; margin-bottom: 16px;">Salvation</h3>
-                    <p style="color: #666; line-height: 1.6;">
-                        [Belief about Salvation content goes here]
-                    </p>
-                </div>
-                
-                <div class="service-card" style="text-align: left;">
-                    <h3 style="color: #87CEEB; margin-bottom: 16px;">Community</h3>
-                    <p style="color: #666; line-height: 1.6;">
-                        [Belief about Community content goes here]
-                    </p>
-                </div>
-                
-                <div class="service-card" style="text-align: left;">
-                    <h3 style="color: #87CEEB; margin-bottom: 16px;">Discipleship</h3>
-                    <p style="color: #666; line-height: 1.6;">
-                        [Belief about Discipleship content goes here]
-                    </p>
-                </div>
+        <div class="values-grid">
+            <div class="value-card" data-value="discipleship">
+                <h3>Discipleship</h3>
+                <p>The process of growing in our relationship with Jesus Christ.</p>
+                <div class="scripture-reference">Acts 2:42</div>
+                <div class="scripture-text">"And they devoted themselves to the apostles' teaching and the fellowship, to the breaking of bread and the prayers."</div>
+            </div>
+            <div class="value-card" data-value="missions">
+                <h3>Missions</h3>
+                <p>Sending disciples into the community and around the world.</p>
+                <div class="scripture-reference">Matthew 28:19</div>
+                <div class="scripture-text">"Go therefore and make disciples of all nations, baptizing them in the name of the Father and of the Son and of the Holy Spirit."</div>
+            </div>
+            <div class="value-card" data-value="community">
+                <h3>Community</h3>
+                <p>We do ministry and life together. Everything is better in teams.</p>
+                <div class="scripture-reference">Acts 2:46</div>
+                <div class="scripture-text">"And day by day, attending the temple together and breaking bread in their homes, they received their food with glad and generous hearts."</div>
+            </div>
+            <div class="value-card" data-value="students">
+                <h3>Students</h3>
+                <p>We believe in investing in the next generation.</p>
+                <div class="scripture-reference">Psalm 127:3</div>
+                <div class="scripture-text">"Behold, children are a heritage from the Lord, the fruit of the womb a reward."</div>
+            </div>
+            <div class="value-card" data-value="advancing">
+                <h3>Advancing</h3>
+                <p>Stewarding our work, ministries, and resources well.</p>
+                <div class="scripture-reference">Colossians 3:23</div>
+                <div class="scripture-text">"Whatever you do, work heartily, as for the Lord and not for men."</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What to Expect / Core Beliefs Section -->
+    <section class="services-section">
+        <div class="services-grid" style="grid-template-columns: 1fr 1fr; gap: 40px; max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+            <div class="service-card" style="text-align: left;">
+                <h2 style="color: #87CEEB; margin-bottom: 24px; font-size: 2rem;">What to Expect</h2>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: #666;">
+                    You should expect an inviting, friendly environment. Wellspring is a place of Engaging Worship, Biblical Preaching, and an Experience with God in the Altar. On any given week, you will see suits, jeans, and everything in between. Come as you are!
+                </p>
+            </div>
+            
+            <div class="service-card" style="text-align: left;">
+                <h2 style="color: #87CEEB; margin-bottom: 24px; font-size: 2rem;">Our Core Beliefs</h2>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: #666;">
+                    Wellspring Church is in voluntary cooperation with the Assemblies of God Fellowship. For a list of our 16 Fundamental Beliefs, you can 
+                    <a href="http://ag.org/top/Beliefs/Statement_of_Fundamental_Truths/sft_short.cfm" target="_blank" style="color: #87CEEB; text-decoration: none;">click HERE</a>.
+                </p>
             </div>
         </div>
     </section>

@@ -598,6 +598,19 @@ body {
     flex-grow: 1;
 }
 
+/* Scripture text styling for value cards */
+.scripture-text {
+    font-style: italic;
+    color: #555;
+    font-size: 0.9rem;
+    margin-top: 8px;
+    padding: 12px;
+    background: rgba(135, 206, 235, 0.05);
+    border-left: 3px solid #87CEEB;
+    border-radius: 0 8px 8px 0;
+    line-height: 1.5;
+}
+
 .scripture-reference {
     margin-top: 20px;
     padding-top: 16px;
@@ -1101,5 +1114,12 @@ body {
     /* Ensure navigation doesn't interfere with hero content */
     .hero-content {
         padding-top: 80px;
+    }
+}
+
+/* Responsive styling for What to Expect / Core Beliefs section */
+@media (max-width: 768px) {
+    .services-grid[style*="grid-template-columns: 1fr 1fr"] {
+        grid-template-columns: 1fr !important;
     }
 }
