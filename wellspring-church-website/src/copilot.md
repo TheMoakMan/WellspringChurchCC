@@ -91,54 +91,22 @@ The navigation has specific mobile/desktop behavior:
 - Service times: Sunday 9:30am, Sunday School 11am, Wednesday 6pm
 - Connect section with social media links
 
-#### 7. Messages Page (messages.html) ✅ NEWLY COMPLETED
-- **Live Services Section**: Embedded Boxcast player for live streaming
-- **Current Series**: "New Life Unlocked" with featured YouTube video
-- **Recent Messages**: 6 embedded YouTube videos from the sermon series:
-  - "The Two Adams" (30:54) - Romans 5:12-21
-  - "Life After Death" (26:42) - John 11:25-26
-  - "Anchored in Hope" (31:29) - Hebrews 6:19
-  - "Faith is the Key" (33:09) - Hebrews 11:6
-  - "Faith Works First" (25:54) - James 2:17
-  - "Trading Pride for Purpose" (33:19) - Philippians 2:3-4
-- Real YouTube video IDs and durations from church website
-- Responsive video embeds with proper aspect ratios
-- Clean, professional layout without overly complex JavaScript
-  - Community (Hebrews 10:24-25)
-  - Worship (Psalm 95:1-2)
-  - Missions (Acts 1:8)
-- **Two-Panel Section**: "What to Expect" (left) + "Core Beliefs" (right)
-- **Link**: Assemblies of God beliefs reference
-- **Responsive**: All sections work on mobile and desktop
+#### 7. Messages Page (messages.html) - ✅ FULLY UPDATED
+- **Featured Video Section**: Large, prominent display of the most recent sermon
+- **Recent Messages Grid**: 6 additional recent sermons in responsive grid layout
+- **YouTube Live Integration**: Complete replacement of Boxcast with YouTube Live streaming
+- **Date Format**: Updated to "Month Day, Year" format (e.g., "December 15, 2024")
+- **Typography**: All message titles use modern sans-serif font (Inter)
+- **Clean Design**: Removed all play button overlays and complex hover effects
+- **Real Content**: Uses actual YouTube videos from the church channel
 
-#### 3. Team Page (team.html)
-- **NO HERO IMAGE** (removed per latest update)
-- **Leadership Team**: 
-  - Pastor Ryan Martin (Lead Pastor) - real bio, team_ryan.avif
-  - Pastor Kenny Martin (Associate Pastor/Legacy Adults) - real bio, team_kenny.avif  
-  - Danika Martin (Director of Ministries) - real bio, team_danika.avif
-  - Pastor Jaela Pruitt (Worship Pastor) - moved from Ministry Leaders
-- **Ministry Leaders**:
-  - Heath & Mindy Middleton (Missions Team Directors)
-  - Shane & Jill Hale (Marriage Ministry)
-  - Evan & Faith Moak (Student Ministry Youth Leaders)
-- All using real bios and content from church website
-
-#### 4. Ministries Page (ministries.html)
-- **Small Hero Section**: 40vh height (reduced from 60vh)
-- **NextGen Ministries**: Real content from church website
-  - Nursery (Ages 8 Weeks - 3 Years)
-  - Lil' Springs Pre-K (Ages 3-5 Years)
-  - WC Kids (Ages 5 - 6th Grade) - Contact: Danika@WellspringChurch.cc
-  - The Well Youth (Grades 7-12) - Wednesdays @ 6:00 PM in Student Center
-- **Compact Design**: Streamlined for adding more content later
-
-#### 5. Giving Page (giving.html)
-- **Simplified Design**: Based on actual church website content
-- **Three Main Sections**:
-  1. **Give Online**: Link to Church Center giving platform  2. **Get Connected**: Information about joining the team
-  3. **Join the Team**: Contact Danika for ministry involvement
-- **Real Content**: Uses exact text from church website
+#### Messages Page Technical Details:
+- **Streaming**: YouTube Live embed for weekend services (Sundays @ 9:30am)
+- **Dynamic Loading**: JavaScript fetches latest videos from YouTube RSS feed
+- **Fallback Content**: Static HTML content if dynamic loading fails
+- **Video Management**: Automatically updates featured video and grid
+- **Responsive**: Mobile-first design with proper video aspect ratios
+- **Accessibility**: Proper iframe titles and alt text
 
 ### ✅ ALL MAJOR PAGES COMPLETED
 
@@ -227,6 +195,50 @@ The website is now feature-complete with all main pages implemented using real c
 - `src/messages.html` - New featured video section, expanded grid
 - `src/css/styles.css` - Featured video styling and enhancements  
 - `src/js/messages.js` - Dynamic video population logic
+
+### YouTube Live Migration & UI Updates (Latest)
+**Date**: December 2024
+**Description**: Migrated from Boxcast to YouTube Live streaming and improved date/font formatting
+
+**Changes Made**:
+- **YouTube Live Integration**: 
+  - Replaced Boxcast embed with YouTube Live stream embed
+  - Uses `https://www.youtube.com/embed/live_stream?channel=UCAFwEAi4EEo1P2vFB9UYOxA`
+  - Automatic live detection - shows live stream when active, recent videos when not
+  - No domain restrictions or complex authentication required
+- **Enhanced Date Formatting**:
+  - Updated date format from "December 2024" to "December 15, 2024" (full date with day)
+  - Applied to both featured video and message cards
+  - Updated JavaScript date formatting logic for dynamic content
+- **Typography Updates**:
+  - Changed message titles from Playfair Display (serif) to Inter (sans-serif)
+  - Updated both featured video title and grid card titles
+  - Maintains visual hierarchy while improving readability
+- **Code Cleanup**:
+  - Removed all Boxcast-related JavaScript methods and properties
+  - Simplified MessagesPageHandler class
+  - Updated console instructions for YouTube Live setup
+  - Cleaned up redundant troubleshooting code
+
+**Technical Implementation**:
+- Updated HTML iframe src to YouTube Live embed URL
+- Modified JavaScript date formatting: added `day: 'numeric'` to toLocaleDateString options
+- Changed CSS font-family from serif to sans-serif for titles
+- Removed Boxcast troubleshooting, testing, and fallback methods
+- Updated initialization and helper functions
+
+**Benefits**:
+- **Reliability**: YouTube Live is more stable and has fewer domain restrictions
+- **User Experience**: Familiar YouTube interface with automatic quality adjustment
+- **Mobile Friendly**: Better mobile streaming experience
+- **Simplified Setup**: No complex authentication or domain configuration needed
+- **Better Dates**: More specific date information helps users identify content chronologically
+
+**Files Updated**:
+- `src/messages.html` - YouTube Live embed, updated dates, sans-serif titles
+- `src/css/styles.css` - Font family changes for message titles
+- `src/js/messages.js` - Removed Boxcast code, enhanced date formatting
+- `src/copilot.md` - Documentation updates
 
 ## Next Steps & Future Enhancements
 

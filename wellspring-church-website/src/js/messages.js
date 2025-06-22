@@ -1,22 +1,20 @@
 // Messages Page Dynamic Content Handler
-// Handles YouTube API integration and Boxcast stream detection
+// Handles YouTube API integration and YouTube Live streaming
 
 class MessagesPageHandler {
     constructor() {
         this.youtubeChannelId = 'UCAFwEAi4EEo1P2vFB9UYOxA';
-        this.boxcastChannelId = 'xelumtbow3yvccvbazko';
-        this.boxcastBroadcastId = 'fepy4qhf9q67zkx2jyis'; // Found from API call
-        this.boxcastHost = 'www-wellspringchurch-cc.filesusr.com'; // Required host parameter
         this.init();
     }
 
     init() {
         this.setupMessageCardInteractions();
         this.loadYouTubeAPI();
-        this.detectBoxcastChannel();
         this.setupEventListeners();
         this.observeVideoLoading();
-    }    // Enhanced message card interactions
+    }
+
+    // Enhanced message card interactions
     setupMessageCardInteractions() {
         // Handle featured video loading
         const featuredIframe = document.getElementById('featured-video-iframe');
@@ -39,7 +37,9 @@ class MessagesPageHandler {
                 });
             }
         });
-    }    // Observe video loading states
+    }
+
+    // Observe video loading states
     observeVideoLoading() {
         const iframes = document.querySelectorAll('.message-video-container iframe');
         
@@ -109,7 +109,9 @@ class MessagesPageHandler {
         try {
             const parser = new DOMParser();
             const xmlDoc = parser.parseFromString(xmlString, 'text/xml');
-            const entries = xmlDoc.getElementsByTagName('entry');            const videos = [];
+            const entries = xmlDoc.getElementsByTagName('entry');
+
+            const videos = [];
             for (let i = 0; i < Math.min(6, entries.length); i++) {
                 const entry = entries[i];
                 const videoId = entry.getElementsByTagName('yt:videoId')[0]?.textContent;
@@ -131,7 +133,9 @@ class MessagesPageHandler {
         } catch (error) {
             console.log('Error parsing YouTube RSS:', error);
         }
-    }    updateVideoGrid(videos) {
+    }
+
+    updateVideoGrid(videos) {
         // Update featured video (most recent)
         if (videos.length > 0) {
             this.updateFeaturedVideo(videos[0]);
@@ -164,7 +168,9 @@ class MessagesPageHandler {
         if (featuredTitle) {
             const cleanTitle = video.title.replace(/New Life Unlocked\s*-\s*/i, '');
             featuredTitle.textContent = cleanTitle;
-        }        // Update featured video date
+        }
+
+        // Update featured video date with day, month, and year
         const featuredDate = document.getElementById('featured-message-date');
         if (featuredDate && video.publishedAt) {
             const date = new Date(video.publishedAt);
@@ -174,7 +180,9 @@ class MessagesPageHandler {
                 day: 'numeric'
             });
         }
-    }    updateVideoCard(card, video) {
+    }
+
+    updateVideoCard(card, video) {
         // Update iframe src
         const iframe = card.querySelector('iframe');
         if (iframe) {
@@ -189,82 +197,22 @@ class MessagesPageHandler {
             titleElement.textContent = cleanTitle;
         }
 
-        // Update date
+        // Update date with day, month, and year
         const dateElement = card.querySelector('.message-date');
         if (dateElement && video.publishedAt) {
             const date = new Date(video.publishedAt);
             dateElement.textContent = date.toLocaleDateString('en-US', { 
                 year: 'numeric', 
-                month: 'long' 
+                month: 'long',
+                day: 'numeric'
             });
         }
     }
 
-    // Detect the correct Boxcast channel ID
-    detectBoxcastChannel() {
-        // Check if there's a way to detect the actual Boxcast channel ID
-        // This function can be expanded to search for embedded scripts or check localStorage
-        this.checkForBoxcastConfig();
-    }
-
-    checkForBoxcastConfig() {
-        // Check localStorage for Boxcast configuration
-        const boxcastConfig = localStorage.getItem('boxcast_config');
-        if (boxcastConfig) {
-            try {
-                const config = JSON.parse(boxcastConfig);
-                if (config.channelId) {
-                    this.boxcastChannelId = config.channelId;
-                    this.updateBoxcastEmbed();
-                }
-            } catch (error) {
-                console.log('Error parsing Boxcast config:', error);
-            }
-        }
-
-        // Check for Boxcast scripts in the original website
-        this.inspectPageForBoxcastId();
-    }    inspectPageForBoxcastId() {
-        // This would typically run on the actual church website to extract the channel ID
-        console.log('Current Boxcast Channel ID:', this.boxcastChannelId);
-        console.log('🔧 BOXCAST TROUBLESHOOTING:');
-        console.log('Channel ID found: xelumtbow3yvccvbazko (from Wix widget)');
-        console.log('');
-        console.log('⚠️ COMMON ISSUES:');
-        console.log('1. Wix Boxcast widgets may have domain restrictions');
-        console.log('2. The embed URL format might be different for Wix-generated channels');
-        console.log('3. Some Boxcast channels require specific referrer headers');
-        console.log('');
-        console.log('🔍 DEBUGGING STEPS:');
-        console.log('1. Try different Boxcast embed formats');
-        console.log('2. Check if the original site has CORS/domain restrictions');
-        console.log('3. Look for alternative streaming solutions');
-        console.log('');
-        console.log('💡 ALTERNATIVES TO TRY:');
-        console.log('- messagesHandler.tryAlternativeBoxcastUrl()');
-        console.log('- messagesHandler.setupYouTubeLiveEmbed()');
-        console.log('- messagesHandler.testBoxcastConnection()');
-    }    updateBoxcastEmbed() {
-        const boxcastIframe = document.querySelector('iframe[src*="boxcast"]');
-        if (boxcastIframe) {
-            // Use the broadcast-specific URL with all required parameters
-            const newSrc = `https://embed.boxcast.com/broadcast/${this.boxcastBroadcastId}?channel_id=${this.boxcastChannelId}&host=${this.boxcastHost}&autoplay=0&defaultLive=1&showTitle=0&showDescription=0&showCountdown=1&showRelated=0`;
-            boxcastIframe.src = newSrc;
-            
-            console.log('📺 Updated Boxcast embed with broadcast ID and host parameter');
-            console.log(`URL: ${newSrc}`);
-        }
-    }setupEventListeners() {
+    setupEventListeners() {
         // Setup any additional event listeners for the messages page
         document.addEventListener('DOMContentLoaded', () => {
             this.enhanceVideoCards();
-            this.createStreamingControls();
-            this.setupYouTubeLiveEmbed(); // Setup fallback
-            
-            // Auto-test Boxcast connection after a delay
-            setTimeout(() => {
-                this.testBoxcastConnection();
-            }, 2000);
         });
     }
 
@@ -297,309 +245,48 @@ class MessagesPageHandler {
         });
     }
 
-    // Method to manually update Boxcast channel ID
-    setBoxcastChannelId(channelId) {
-        this.boxcastChannelId = channelId;
-        this.updateBoxcastEmbed();
-        
-        // Save to localStorage for future visits
-        localStorage.setItem('boxcast_config', JSON.stringify({
-            channelId: channelId,
-            lastUpdated: new Date().toISOString()
-        }));
-    }
-
     // Method to force refresh YouTube videos
     refreshYouTubeVideos() {
         this.loadRecentVideosFromRSS();
-    }    // Alternative Boxcast embed formats to try
-    tryAlternativeBoxcastUrl() {
-        const alternatives = [
-            // Standard embed with broadcast ID (most likely to work)
-            `https://embed.boxcast.com/broadcast/${this.boxcastBroadcastId}?channel_id=${this.boxcastChannelId}&host=${this.boxcastHost}`,
-            // Channel embed with host parameter
-            `https://embed.boxcast.com/channel/${this.boxcastChannelId}?host=${this.boxcastHost}&defaultLive=1&autoplay=0`,
-            // Standard Boxcast embed
-            `https://embed.boxcast.com/channel/${this.boxcastChannelId}`,
-            // With specific parameters
-            `https://embed.boxcast.com/channel/${this.boxcastChannelId}?defaultLive=1&autoplay=0`,
-            // Broadcast-specific embed
-            `https://embed.boxcast.com/broadcast/${this.boxcastBroadcastId}`,
-            // Player format with broadcast ID
-            `https://embed.boxcast.com/player/${this.boxcastBroadcastId}?channel_id=${this.boxcastChannelId}`
-        ];
-
-        console.log('🔄 Trying alternative Boxcast URLs with broadcast ID...');
-        alternatives.forEach((url, index) => {
-            console.log(`${index + 1}. ${url}`);
-        });
-
-        // Try the first alternative (most likely to work)
-        const boxcastIframe = document.querySelector('iframe[src*="boxcast"]');
-        if (boxcastIframe && alternatives.length > 0) {
-            boxcastIframe.src = alternatives[0];
-            console.log(`✅ Updated to: ${alternatives[0]}`);
-            
-            // Set up iframe to try fallbacks on error
-            this.setupIframeErrorHandling(boxcastIframe, alternatives);
-        }
-
-        return alternatives;
-    }
-
-    // Setup iframe error handling with multiple fallbacks
-    setupIframeErrorHandling(iframe, alternatives) {
-        let currentIndex = 0;
-        
-        const tryNextUrl = () => {
-            currentIndex++;
-            if (currentIndex < alternatives.length) {
-                console.log(`🔄 Trying fallback ${currentIndex + 1}: ${alternatives[currentIndex]}`);
-                iframe.src = alternatives[currentIndex];
-            } else {
-                console.log('❌ All Boxcast URLs failed, switching to YouTube Live...');
-                this.setupYouTubeLiveEmbed();
-            }
-        };
-
-        // Handle iframe load errors
-        iframe.onerror = tryNextUrl;
-        
-        // Also check if iframe loads but shows error content
-        iframe.onload = () => {
-            setTimeout(() => {
-                try {
-                    // Check if iframe content indicates an error
-                    const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-                    if (iframeDoc && iframeDoc.body.textContent.toLowerCase().includes('error')) {
-                        tryNextUrl();
-                    } else {
-                        console.log('✅ Boxcast stream loaded successfully');
-                    }
-                } catch (e) {
-                    // Cross-origin restrictions prevent checking content, assume it worked
-                    console.log('✅ Boxcast stream embed loaded (cross-origin protected)');
-                }
-            }, 3000);
-        };
-    }    // Test Boxcast connection
-    async testBoxcastConnection() {
-        console.log('🧪 Testing Boxcast connection...');
-        console.log('📡 Found broadcast details:');
-        console.log(`   Channel ID: ${this.boxcastChannelId}`);
-        console.log(`   Broadcast ID: ${this.boxcastBroadcastId}`);
-        console.log(`   Required Host: ${this.boxcastHost}`);
-        
-        const testUrls = [
-            // Test the exact API endpoint that was captured
-            `https://rest.boxcast.com/broadcasts/${this.boxcastBroadcastId}/view?channel_id=${this.boxcastChannelId}&host=${this.boxcastHost}&extended=true`,
-            // Test the embed URLs
-            `https://embed.boxcast.com/broadcast/${this.boxcastBroadcastId}?channel_id=${this.boxcastChannelId}&host=${this.boxcastHost}`,
-            `https://embed.boxcast.com/channel/${this.boxcastChannelId}`,
-            `https://boxcast.com/channel/${this.boxcastChannelId}`
-        ];
-
-        for (const url of testUrls) {
-            try {
-                console.log(`Testing: ${url}`);
-                const response = await fetch(url, { 
-                    method: 'HEAD',
-                    mode: 'no-cors', // Avoid CORS issues for testing
-                    headers: {
-                        'Referer': `https://${this.boxcastHost}/`
-                    }
-                });
-                console.log(`✅ ${url} - Accessible`);
-            } catch (error) {
-                console.log(`❌ ${url} - Error: ${error.message}`);
-            }
-        }
-        
-        console.log('');
-        console.log('🔧 DOMAIN RESTRICTION DETECTED:');
-        console.log('The Boxcast stream requires the specific Wix host parameter.');
-        console.log('This is why it may not work on external domains.');
-    }
-
-    // Setup YouTube Live as fallback
-    setupYouTubeLiveEmbed() {
-        console.log('🔄 Setting up YouTube Live as fallback...');
-        
-        const boxcastContainer = document.querySelector('.boxcast-container');
-        if (!boxcastContainer) return;
-
-        // Create YouTube Live embed as fallback
-        const youtubeChannelId = this.youtubeChannelId;
-        const youtubeLiveUrl = `https://www.youtube.com/embed/live_stream?channel=${youtubeChannelId}&autoplay=0`;
-
-        const iframe = boxcastContainer.querySelector('iframe');
-        if (iframe) {
-            // Store original Boxcast URL
-            iframe.dataset.originalSrc = iframe.src;
-            iframe.dataset.fallbackSrc = youtubeLiveUrl;
-            
-            // Add error handler
-            iframe.onerror = () => {
-                console.log('📺 Boxcast failed, switching to YouTube Live...');
-                iframe.src = youtubeLiveUrl;
-                this.updateLiveStreamMessage('YouTube Live');
-            };
-
-            // Test Boxcast load
-            iframe.onload = () => {
-                console.log('✅ Stream embed loaded successfully');
-            };
-        }
-    }
-
-    // Update live stream message based on provider
-    updateLiveStreamMessage(provider = 'Live Stream') {
-        const messageContainer = document.querySelector('.service-card h3');
-        if (messageContainer) {
-            messageContainer.textContent = `${provider} - Weekend Services`;
-        }
-
-        const descriptionContainer = document.querySelector('.service-card p');
-        if (descriptionContainer) {
-            if (provider === 'YouTube Live') {
-                descriptionContainer.innerHTML = `
-                    Join us live for worship every Sunday at 9:30am via YouTube Live. 
-                    If we're not currently streaming, check out our recent messages below!
-                    <br><small style="color: #999; margin-top: 10px; display: block;">
-                    Note: Using YouTube Live as backup streaming service.
-                    </small>
-                `;
-            }
-        }
-    }
-
-    // Create a manual override system
-    createStreamingControls() {
-        const container = document.querySelector('.boxcast-container');
-        if (!container) return;
-
-        const controlsDiv = document.createElement('div');
-        controlsDiv.className = 'streaming-controls';
-        controlsDiv.style.cssText = `
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: rgba(0,0,0,0.7);
-            color: white;
-            padding: 10px;
-            border-radius: 5px;
-            font-size: 12px;
-            z-index: 10;
-            display: none;
-        `;        controlsDiv.innerHTML = `
-            <div style="margin-bottom: 5px;"><strong>Stream Controls</strong></div>
-            <div style="font-size: 10px; margin-bottom: 5px;">Broadcast: ${this.boxcastBroadcastId.substring(0, 8)}...</div>
-            <button onclick="messagesHandler.tryAlternativeBoxcastUrl()" style="margin: 2px; padding: 4px 8px; font-size: 11px;">Try Broadcast URL</button>
-            <button onclick="messagesHandler.setupYouTubeLiveEmbed()" style="margin: 2px; padding: 4px 8px; font-size: 11px;">YouTube Live</button>
-            <button onclick="messagesHandler.testBoxcastConnection()" style="margin: 2px; padding: 4px 8px; font-size: 11px;">Test Connection</button>
-        `;
-
-        container.appendChild(controlsDiv);
-
-        // Show controls on hover (for debugging)
-        container.addEventListener('mouseenter', () => {
-            controlsDiv.style.display = 'block';
-        });
-        container.addEventListener('mouseleave', () => {
-            controlsDiv.style.display = 'none';
-        });
-    }
-
-    // Create a proxy iframe approach for domain restrictions
-    createProxyEmbed() {
-        console.log('🔄 Attempting proxy embed solution...');
-        
-        const boxcastContainer = document.querySelector('.boxcast-container');
-        if (!boxcastContainer) return;
-
-        // Create a data URL with the Boxcast embed
-        const embedHtml = `
-            <!DOCTYPE html>
-            <html>
-            <head>
-                <meta charset="utf-8">
-                <style>
-                    body { margin: 0; padding: 0; overflow: hidden; }
-                    iframe { width: 100%; height: 100vh; border: none; }
-                </style>
-            </head>
-            <body>
-                <iframe 
-                    src="https://embed.boxcast.com/broadcast/${this.boxcastBroadcastId}?channel_id=${this.boxcastChannelId}&host=${this.boxcastHost}&autoplay=0&defaultLive=1&showTitle=0&showDescription=0&showCountdown=1&showRelated=0"
-                    allowfullscreen>
-                </iframe>
-            </body>
-            </html>
-        `;
-
-        const dataUrl = 'data:text/html;charset=utf-8,' + encodeURIComponent(embedHtml);
-        
-        const iframe = boxcastContainer.querySelector('iframe');
-        if (iframe) {
-            iframe.src = dataUrl;
-            console.log('✅ Proxy embed created');
-        }
-    }
-
-    // Method to manually set broadcast ID if it changes
-    setBroadcastId(broadcastId) {
-        this.boxcastBroadcastId = broadcastId;
-        this.updateBoxcastEmbed();
-        
-        // Save to localStorage
-        const config = JSON.parse(localStorage.getItem('boxcast_config') || '{}');
-        config.broadcastId = broadcastId;
-        config.lastUpdated = new Date().toISOString();
-        localStorage.setItem('boxcast_config', JSON.stringify(config));
-        
-        console.log(`✅ Broadcast ID updated to: ${broadcastId}`);
     }
 }
 
-// Instructions for troubleshooting Boxcast issues
-function getBoxcastInstructions() {
+// Instructions for YouTube Live streaming
+function getYouTubeLiveInstructions() {
     console.log(`
-=== 🎯 BOXCAST SOLUTION FOUND ===
+=== 📺 YOUTUBE LIVE STREAMING ===
 
-✅ DISCOVERED FROM API ANALYSIS:
-   Channel ID: xelumtbow3yvccvbazko
-   Broadcast ID: fepy4qhf9q67zkx2jyis
-   Required Host: www-wellspringchurch-cc.filesusr.com
+✅ LIVE STREAMING SETUP:
+   Channel ID: UCAFwEAi4EEo1P2vFB9UYOxA
+   Stream URL: https://www.youtube.com/embed/live_stream?channel=UCAFwEAi4EEo1P2vFB9UYOxA
 
-🔧 DOMAIN RESTRICTION ISSUE:
-The Boxcast stream requires a specific "host" parameter that matches
-the original Wix domain. This prevents it from working on external sites.
+🔧 HOW IT WORKS:
+- Automatically displays live stream when the church goes live on YouTube
+- Shows recent videos when not streaming live
+- No domain restrictions or complex setup required
 
-� AUTOMATIC SOLUTIONS IMPLEMENTED:
+📱 BENEFITS:
+- Reliable cross-platform streaming
+- Mobile-friendly player
+- Automatic quality adjustment
+- Familiar YouTube interface for users
 
-1. Try broadcast-specific URL:
-   messagesHandler.tryAlternativeBoxcastUrl()
+🎥 TO GO LIVE:
+1. Start a live stream on the church's YouTube channel
+2. The embed will automatically show the live stream
+3. When stream ends, it reverts to showing recent videos
 
-2. Switch to YouTube Live (RECOMMENDED):
-   messagesHandler.setupYouTubeLiveEmbed()
-
-3. Test all connection options:
-   messagesHandler.testBoxcastConnection()
-
-🚨 WHY BOXCAST FAILS ON EXTERNAL DOMAINS:
-- Host parameter validation: host=www-wellspringchurch-cc.filesusr.com
-- Referrer header restrictions
-- CORS policies blocking cross-domain embeds
-
-✅ BEST SOLUTION: Use YouTube Live streaming for reliable cross-domain compatibility.
+📅 DATE FORMAT:
+- All video dates now display as "Month Day, Year" (e.g., "June 15, 2025")
+- Titles use modern sans-serif font (Inter) for better readability
     `);
 }
 
-// Helper function to quickly switch to YouTube Live
-function switchToYouTubeLive() {
+// Helper function to refresh YouTube content
+function refreshYouTubeContent() {
     if (window.messagesHandler) {
-        window.messagesHandler.setupYouTubeLiveEmbed();
-        console.log('✅ Switched to YouTube Live streaming');
+        window.messagesHandler.refreshYouTubeVideos();
+        console.log('✅ YouTube content refreshed');
     }
 }
 
@@ -608,7 +295,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.messagesHandler = new MessagesPageHandler();
     
     // Show instructions in console for setup
-    getBoxcastInstructions();
+    getYouTubeLiveInstructions();
 });
 
 // YouTube API Configuration (for future use with API key)
