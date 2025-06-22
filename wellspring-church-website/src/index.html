@@ -11,21 +11,28 @@
     <link rel="stylesheet" href="css/animations.css">
 </head>
 <body>
-    <!-- Navigation -->
+
     <nav class="nav-floating unselectable">
         <div class="nav-logo">
             <img src="assets/images/wc_logo.avif" alt="Wellspring Church" style="height: 24px; margin-right: 8px;">
             <span class="logo-text">WELLSPRING</span>
         </div>
         <div class="nav-menu">
-            <a href="#home" class="nav-link active">Home</a>
-            <a href="#services" class="nav-link">Services</a>
-            <a href="#values" class="nav-link">Values</a>
-            <a href="#connect" class="nav-link">Connect</a>
+            <a href="index.html" class="nav-link active">Home</a>
+            <div class="nav-dropdown">
+                <a href="about.html" class="nav-link dropdown-toggle">About</a>
+                <div class="dropdown-menu">
+                    <a href="about.html" class="dropdown-item">Our Values</a>
+                    <a href="team.html" class="dropdown-item">Our Team</a>
+                </div>
+            </div>
+            <a href="messages.html" class="nav-link">Messages</a>
+            <a href="ministries.html" class="nav-link">Ministries</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+            <a href="giving.html" class="nav-link active">Giving</a>
         </div>
     </nav>
-
-    <!-- Hero Section -->
+    
     <section id="home" class="hero-section unselectable">
         <div class="hero-background">
             <img src="assets/images/hero.avif" alt="Wellspring Church" class="hero-bg-image">
@@ -78,7 +85,7 @@
                 <img src="assets/images/services_wednesday.avif" alt="Wednesday Night" class="service-image unselectable">
                 <div class="service-time">6:00 PM</div>
                 <div class="service-day">Wednesday</div>
-                <div class="service-name">Wednesday Night</div>
+                <div class="service-name">Wednesday Night Adults</div>
                 <div class="service-description">Mid-week service for all ages with ministry and community</div>
                 <div class="service-features">
                     <span class="feature">Nursery (8 Weeks - 2 Years)</span>
@@ -96,8 +103,6 @@
                 <div class="service-description">Student Ministries and adult prayer service for spiritual growth</div>
                 <div class="service-features">
                     <span class="feature">Student Ministries</span>
-                    <span class="feature">Adult Prayer Service</span>
-                    <span class="feature">Community Focus</span>
                 </div>
             </div>
         </div>

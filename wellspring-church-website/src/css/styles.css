@@ -100,6 +100,71 @@ body {
     background: rgba(135, 206, 235, 0.1);
 }
 
+/* Dropdown Menu Styles */
+.nav-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-toggle {
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    min-width: 140px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1001;
+    border: 1px solid rgba(135, 206, 235, 0.2);
+}
+
+.nav-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.dropdown-menu.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.dropdown-item {
+    display: block;
+    padding: 12px 16px;
+    color: #666;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    margin: 4px;
+}
+
+.dropdown-item:hover {
+    background: rgba(135, 206, 235, 0.1);
+    color: #87CEEB;
+}
+
+.dropdown-item:first-child {
+    margin-top: 8px;
+}
+
+.dropdown-item:last-child {
+    margin-bottom: 8px;
+}
+
 /* Hero Section */
 .hero-section {
     position: relative;
@@ -773,6 +838,34 @@ body {
         padding: 6px 12px;
         font-size: 12px;
         border-radius: 15px;
+    }
+    
+    /* Mobile Dropdown Styles */
+    .dropdown-menu {
+        position: fixed;
+        top: 70px;
+        left: 15px;
+        right: 15px;
+        transform: none;
+        width: auto;
+        min-width: auto;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(25px);
+        border-radius: 15px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        padding: 8px;
+    }
+    
+    .dropdown-menu.show {
+        transform: none;
+    }
+    
+    .dropdown-item {
+        padding: 12px 16px;
+        font-size: 14px;
+        border-radius: 10px;
+        text-align: center;
+        margin: 2px 0;
     }
     
     .hero-title {

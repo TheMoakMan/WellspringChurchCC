@@ -19,16 +19,25 @@ function initializeNavigation() {
     const nav = document.querySelector('.nav-floating');
     const navLinks = document.querySelectorAll('.nav-link');
     
+    // Initialize dropdown functionality
+    initializeDropdown();
+    
     // Smooth scrolling for navigation links
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const targetId = link.getAttribute('href').substring(1);
-            scrollToSection(targetId);
+            const href = link.getAttribute('href');
             
-            // Update active nav link
-            navLinks.forEach(l => l.classList.remove('active'));
-            link.classList.add('active');
+            // Only prevent default for anchor links (starting with #)
+            if (href.startsWith('#')) {
+                e.preventDefault();
+                const targetId = href.substring(1);
+                scrollToSection(targetId);
+                
+                // Update active nav link
+                navLinks.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+            }
+            // For page links (like about.html), let the browser handle normal navigation
         });
     });
     
@@ -438,4 +447,82 @@ if ('serviceWorker' in navigator) {
 
 function applyScrollEffects(scrollPosition) {
     // Implement your scroll effects logic here
+}
+
+// Dropdown Menu Functions
+function initializeDropdown() {
+    const dropdownContainer = document.querySelector('.nav-dropdown');
+    const dropdownToggle = document.querySelector('.dropdown-toggle');
+    const dropdownMenu = document.querySelector('.dropdown-menu');
+    
+    if (!dropdownContainer || !dropdownToggle || !dropdownMenu) return;
+
+    let hoverTimeout;
+    
+    // Open dropdown on hover (desktop)
+    dropdownContainer.addEventListener('mouseenter', () => {
+        clearTimeout(hoverTimeout);
+        if (window.innerWidth > 768) {
+            openDropdown();
+        }
+    });
+    
+    // Close dropdown when mouse leaves (desktop)
+    dropdownContainer.addEventListener('mouseleave', () => {
+        if (window.innerWidth > 768) {
+            hoverTimeout = setTimeout(() => {
+                closeDropdown();
+            }, 100); // Small delay to prevent flickering
+        }
+    });
+    
+    // Handle click for mobile devices
+    dropdownToggle.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const isOpen = dropdownMenu.classList.contains('show');
+            
+            if (isOpen) {
+                closeDropdown();
+            } else {
+                openDropdown();
+            }
+        }
+    });
+    
+    // Close dropdown when clicking outside (mobile)
+    document.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768) {
+            if (!dropdownContainer.contains(e.target)) {
+                closeDropdown();
+            }
+        }
+    });
+    
+    // Close dropdown on escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeDropdown();
+        }
+    });
+    
+    // Handle dropdown items
+    const dropdownItems = document.querySelectorAll('.dropdown-item');
+    dropdownItems.forEach(item => {
+        item.addEventListener('click', () => {
+            closeDropdown();
+        });
+    });
+    
+    function openDropdown() {
+        dropdownMenu.classList.add('show');
+        dropdownToggle.classList.add('active');
+    }
+    
+    function closeDropdown() {
+        dropdownMenu.classList.remove('show');
+        dropdownToggle.classList.remove('active');
+    }
 }
