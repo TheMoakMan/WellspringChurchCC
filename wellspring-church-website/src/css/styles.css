@@ -832,15 +832,33 @@ body {
     .nav-menu {
         display: flex;
         gap: 12px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* Internet Explorer 10+ */
+        padding-bottom: 2px; /* Space for potential scrollbar */
+        white-space: nowrap;
+    }
+    
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .nav-menu::-webkit-scrollbar {
+        display: none;
     }
     
     .nav-link {
         padding: 6px 12px;
         font-size: 12px;
         border-radius: 15px;
+        flex-shrink: 0; /* Prevent nav items from shrinking */
+        white-space: nowrap; /* Prevent text wrapping */
     }
     
     /* Mobile Dropdown Styles */
+    .nav-dropdown {
+        flex-shrink: 0; /* Prevent dropdown from shrinking */
+    }
+    
     .dropdown-menu {
         position: fixed;
         top: 70px;
