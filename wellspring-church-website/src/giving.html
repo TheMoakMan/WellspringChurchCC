@@ -16,16 +16,17 @@
         <div class="nav-logo">
             <img src="assets/images/wc_logo.avif" alt="Wellspring Church" style="height: 24px;">
             <span class="logo-text">WELLSPRING CHURCH</span>
-        </div>
-        <div class="nav-menu">
+        </div>        <div class="nav-menu">
             <a href="index.html" class="nav-link">Home</a>
-            <div class="nav-dropdown">
+            <div class="nav-dropdown desktop-only">
                 <a href="about.html" class="nav-link dropdown-toggle">About</a>
                 <div class="dropdown-menu">
                     <a href="about.html" class="dropdown-item">Our Values</a>
                     <a href="team.html" class="dropdown-item">Our Team</a>
                 </div>
             </div>
+            <a href="about.html" class="nav-link mobile-only">Values</a>
+            <a href="team.html" class="nav-link mobile-only">Team</a>
             <a href="messages.html" class="nav-link">Messages</a>
             <a href="ministries.html" class="nav-link">Ministries</a>
             <a href="contact.html" class="nav-link">Contact</a>
@@ -45,178 +46,52 @@
             </h1>
             <p class="hero-subtitle">Partnering with God to transform lives and communities</p>
         </div>
-    </section>
-
-    <!-- Giving Philosophy Section -->
+    </section>    <!-- Giving Section -->
     <section class="services-section">
         <div class="section-header">
-            <h2 class="section-title">Why We Give</h2>
-            <div class="section-subtitle">At Wellspring Church, we believe that giving is an act of worship and a way to partner with God in His work. Your generosity helps us fulfill our mission of Growing, Equipping, and Sending Disciples of Jesus.</div>
+            <h2 class="section-title">Give Online</h2>
+            <div class="section-subtitle">If you are interested in bringing your tithe or giving an offering online, just click the link below and you will be directed to the secure giving site.</div>
         </div>
-        <div class="values-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px;">
-            <div class="value-card">
-                <h3>Worship Through Giving</h3>
-                <p>Giving is an expression of our love and gratitude to God for all He has done for us. It's a way to honor Him with the resources He has entrusted to us.</p>
-                <div class="scripture-reference">2 Corinthians 9:7</div>
-            </div>
-            <div class="value-card">
-                <h3>Ministry Support</h3>
-                <p>Your tithes and offerings directly support our ministries, missions, and the daily operations that help us serve our community and beyond.</p>
-                <div class="scripture-reference">Philippians 4:19</div>
-            </div>
-            <div class="value-card">
-                <h3>Kingdom Impact</h3>
-                <p>Together, we're making a difference in lives - locally through outreach and globally through missions. Every gift, large or small, makes an impact.</p>
-                <div class="scripture-reference">Matthew 28:19-20</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Giving Options Section -->
-    <section class="services-section" style="background: linear-gradient(135deg, #f8fbff, #ffffff);">
-        <div class="section-header">
-            <h2 class="section-title">Ways to Give</h2>
-            <div class="section-subtitle">We've made it easy and secure for you to give in the way that works best for you.</div>
-        </div>
-        <div class="services-grid">
-            <div class="service-card main-service">
-                <div class="service-name" style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#87CEEB" class="bi bi-phone" viewBox="0 0 16 16">
-                        <path d="M11 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
-                        <path d="M8 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2"/>
-                    </svg>
-                    Online Giving
+        <div style="max-width: 600px; margin: 0 auto; text-align: center;">
+            <div class="service-card" style="padding: 40px;">
+                <div class="service-name" style="margin-bottom: 20px; font-size: 1.5rem; color: #87CEEB;">
+                    Secure Online Giving
                 </div>
-                <div class="service-description">
+                <div class="service-description" style="margin-bottom: 30px; font-size: 1.1rem;">
                     Give securely online through our Church Center platform. Set up one-time gifts or recurring donations with just a few clicks.
                 </div>
-                <div class="service-features">
-                    <span class="feature">Secure & Safe</span>
-                    <span class="feature">One-time or Recurring</span>
-                    <span class="feature">Bank Account or Card</span>
-                    <span class="feature">Mobile Friendly</span>
-                </div>
-                <div style="margin-top: 20px;">
-                    <button class="btn-primary" onclick="window.open('https://wellspringchurchnea.churchcenter.com/giving', '_blank')" style="width: 100%;">
-                        Give Online Now
-                    </button>
-                </div>
-            </div>
-
-            <div class="service-card">
-                <div class="service-name" style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#87CEEB" class="bi bi-building" viewBox="0 0 16 16">
-                        <path d="M4 2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zM4 5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zM7.5 5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm2.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zM4.5 8a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm2.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5z"/>
-                        <path d="M2 1a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1zm11 0H3v14h3v-2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5V15h3z"/>
-                    </svg>
-                    In-Person Giving
-                </div>
-                <div class="service-description">
-                    Bring your tithes and offerings with you to any of our worship services. We have offering boxes available for your convenience.
-                </div>
-                <div class="service-features">
-                    <span class="feature">Cash or Check</span>
-                    <span class="feature">All Services</span>
-                    <span class="feature">Offering Boxes</span>
-                    <span class="feature">Private & Secure</span>
-                </div>
-                <div class="service-additional">
-                    <strong>Available at all worship services</strong>
-                </div>
-            </div>
-
-            <div class="service-card">
-                <div class="service-name" style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#87CEEB" class="bi bi-envelope" viewBox="0 0 16 16">
-                        <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"/>
-                    </svg>
-                    Mail Your Gift
-                </div>
-                <div class="service-description">
-                    Send your check or money order through the mail. Make checks payable to "Wellspring Church" and include any special designations.
-                </div>
-                <div class="service-features">
-                    <span class="feature">Check or Money Order</span>
-                    <span class="feature">Special Designations</span>
-                    <span class="feature">Receipt Provided</span>
-                    <span class="feature">Tax Deductible</span>
-                </div>
-                <div class="service-additional">
-                    <strong>Wellspring Church<br>600 N Division St<br>Blytheville, AR 72315</strong>
-                </div>
+                <button class="btn-primary" onclick="window.open('https://wellspringchurchnea.churchcenter.com/giving', '_blank')" style="font-size: 1.1rem; padding: 15px 30px;">
+                    Give Online Here
+                </button>
             </div>
         </div>
     </section>
 
-    <!-- Special Giving Opportunities -->
+    <!-- Get Connected Section -->
+    <section class="services-section" style="background: linear-gradient(135deg, #f8fbff, #ffffff);">
+        <div class="section-header">
+            <h2 class="section-title">Get Connected</h2>
+            <div class="section-subtitle">There is a place for you to engage at Wellspring. With kids or adults. Up in front or behind the scenes. Greeting at the door or serving in the nursery. There is always room for one more on the Wellspring Team.</div>
+        </div>
+    </section>
+
+    <!-- Join the Team Section -->
     <section class="services-section">
         <div class="section-header">
-            <h2 class="section-title">Special Giving Opportunities</h2>
-            <div class="section-subtitle">Beyond regular tithes and offerings, we have special opportunities to support specific ministries and missions throughout the year.</div>
+            <h2 class="section-title">Join the Team</h2>
+            <div class="section-subtitle">If you are interested in serving on a Wellspring team, please contact Danika for more information by clicking the link below.</div>
         </div>
-        <div class="services-grid" style="grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));">
-            <div class="service-card">
-                <img src="assets/images/services_discipleship.avif" alt="Building Fund" class="service-image unselectable">
-                <div class="service-name">Building & Facilities</div>
-                <div class="service-description">
-                    Help us maintain and improve our church facilities to better serve our congregation and community for years to come.
+        <div style="max-width: 600px; margin: 0 auto; text-align: center;">
+            <div class="service-card" style="padding: 40px;">
+                <div class="service-name" style="margin-bottom: 20px; font-size: 1.5rem; color: #87CEEB;">
+                    Ready to Serve?
                 </div>
-                <div class="service-additional">
-                    <strong>Ongoing need for facility improvements</strong>
+                <div class="service-description" style="margin-bottom: 30px; font-size: 1.1rem;">
+                    We'd love to help you find the perfect place to serve and make a difference in our church and community.
                 </div>
-            </div>
-
-            <div class="service-card">
-                <img src="assets/images/transform.jpg" alt="Missions" class="service-image unselectable">
-                <div class="service-name">Missions & Outreach</div>
-                <div class="service-description">
-                    Support our local community outreach programs and international mission partnerships as we share God's love around the world.
-                </div>
-                <div class="service-additional">
-                    <strong>Making a difference locally and globally</strong>
-                </div>
-            </div>
-
-            <div class="service-card">
-                <img src="assets/images/services_worship.avif" alt="Youth Ministry" class="service-image unselectable">
-                <div class="service-name">Youth & Children's Ministry</div>
-                <div class="service-description">
-                    Invest in the next generation through special offerings for youth camps, children's programs, and ministry resources.
-                </div>
-                <div class="service-additional">
-                    <strong>Shaping future disciples of Jesus</strong>
-                </div>
-            </div>
-
-            <div class="service-card">
-                <img src="assets/images/core-values-bg.jpg" alt="Benevolence" class="service-image unselectable">
-                <div class="service-name">Benevolence Fund</div>
-                <div class="service-description">
-                    Help us assist families and individuals in our community who are facing financial hardships or unexpected emergencies.
-                </div>
-                <div class="service-additional">
-                    <strong>Caring for those in need</strong>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Biblical Foundation Section -->
-    <section class="values-section">
-        <div class="section-header">
-            <h2 class="section-title">What God Says About Giving</h2>
-            <div class="section-subtitle">Our approach to giving is grounded in Biblical principles and motivated by love, not obligation.</div>
-        </div>
-        <div style="max-width: 800px; margin: 0 auto;">
-            <div class="service-card" style="text-align: center; padding: 40px;">
-                <div class="service-description" style="margin-bottom: 30px; font-size: 1.1rem; line-height: 1.8;">
-                    <p style="margin-bottom: 20px; font-style: italic; font-size: 1.2rem; color: #87CEEB;">"Each of you should give what you have decided in your heart to give, not reluctantly or under compulsion, for God loves a cheerful giver."</p>
-                    <p style="font-weight: 600; margin-bottom: 30px;">- 2 Corinthians 9:7</p>
-                    <p>We believe that giving should be a joyful expression of our faith, not a burden. Whether you're able to give a little or a lot, what matters most is the heart behind the gift. God sees and blesses every act of generosity, no matter the amount.</p>
-                </div>
-                <div class="service-additional">
-                    <strong>Remember: It's not about the amount - it's about the heart</strong>
-                </div>
+                <button class="btn-primary" onclick="window.location.href='mailto:Danika@wellspringchurch.cc?subject=I\'m interested in joining a Wellspring Team'" style="font-size: 1.1rem; padding: 15px 30px;">
+                    Email Danika
+                </button>
             </div>
         </div>
     </section>
