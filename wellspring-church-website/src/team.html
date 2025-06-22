@@ -11,39 +11,27 @@
     <link rel="stylesheet" href="css/animations.css">
 </head>
 <body>
-    <!-- Navigation -->    <nav class="nav-floating unselectable">        <div class="nav-logo">
+    <!-- Navigation -->    <nav class="nav-floating unselectable">
+        <div class="nav-logo">
             <img src="assets/images/wc_logo.avif" alt="Wellspring Church" style="height: 24px;">
             <span class="logo-text">WELLSPRING CHURCH</span>
-        </div>        <div class="nav-menu">
+        </div>
+        <div class="nav-menu">
             <a href="index.html" class="nav-link">Home</a>
-            <div class="nav-dropdown">
-                <a href="#" class="nav-link dropdown-toggle active">About</a>
+            <div class="nav-dropdown desktop-only">
+                <a href="about.html" class="nav-link dropdown-toggle active">About</a>
                 <div class="dropdown-menu">
                     <a href="about.html" class="dropdown-item">Our Values</a>
                     <a href="team.html" class="dropdown-item">Our Team</a>
                 </div>
             </div>
+            <a href="about.html" class="nav-link mobile-only">Values</a>
+            <a href="team.html" class="nav-link mobile-only active">Team</a>
             <a href="messages.html" class="nav-link">Messages</a>
             <a href="ministries.html" class="nav-link">Ministries</a>
             <a href="contact.html" class="nav-link">Contact</a>
             <a href="giving.html" class="nav-link">Giving</a>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero-section" style="height: 60vh;">
-        <div class="hero-background">
-            <img src="assets/images/hero.avif" alt="Wellspring Church Team" class="hero-bg-image">
-            <div class="hero-gradient"></div>
-        </div>
-        <div class="hero-content">
-            <h1 class="hero-title unselectable" style="font-size: clamp(2.5rem, 6vw, 4rem);">
-                <span class="hero-title-line">OUR</span>
-                <span class="hero-title-line hero-title-main">TEAM</span>
-            </h1>
-            <p class="hero-subtitle">Meet the people who lead and serve at Wellspring Church</p>
-        </div>
-    </section>
+        </div>    </nav>
 
     <!-- Leadership Team Section -->
     <section class="services-section">
@@ -55,95 +43,80 @@
         <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
             <div class="services-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
                 <div class="service-card" style="text-align: center;">
-                    <img src="assets/images/avatar.5.png" alt="Senior Pastor" class="service-image unselectable" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin: 0 auto 20px;">
-                    <h3 style="color: #87CEEB; margin-bottom: 8px;">[Pastor Name]</h3>
-                    <h4 style="color: #666; margin-bottom: 16px; font-weight: 500;">Senior Pastor</h4>
+                    <img src="assets/images/team_ryan.avif" alt="Pastor Ryan Martin" class="service-image unselectable" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin: 0 auto 20px;">
+                    <h3 style="color: #87CEEB; margin-bottom: 8px;">Pastor Ryan Martin</h3>
+                    <h4 style="color: #666; margin-bottom: 16px; font-weight: 500;">Lead Pastor</h4>
                     <p style="color: #666; line-height: 1.6; text-align: left;">
-                        [Pastor bio and background information will go here. Include education, ministry experience, and personal details.]
+                        Pastor Ryan is married to Danika, and they have two sons: Judah and Brantley. They began leading Wellspring Church in January 2017. They are passionate about growing, equipping, and sending disciples of Jesus into NEA, SEMO, and around the World. Pastor Ryan enjoys sports and family!
+                    </p>
+                    <p style="color: #87CEEB; margin-top: 12px; font-size: 0.9rem;">
+                        PastorRyan@WellspringChurch.cc
                     </p>
                 </div>
-                
                 <div class="service-card" style="text-align: center;">
-                    <img src="assets/images/avatar.5.png" alt="Associate Pastor" class="service-image unselectable" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin: 0 auto 20px;">
-                    <h3 style="color: #87CEEB; margin-bottom: 8px;">[Associate Pastor Name]</h3>
-                    <h4 style="color: #666; margin-bottom: 16px; font-weight: 500;">Associate Pastor</h4>
+                    <img src="assets/images/team_danika.avif" alt="Danika Martin" class="service-image unselectable" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin: 0 auto 20px;">
+                    <h3 style="color: #87CEEB; margin-bottom: 8px;">Danika Martin</h3>
+                    <h4 style="color: #666; margin-bottom: 16px; font-weight: 500;">Director of Ministries</h4>
                     <p style="color: #666; line-height: 1.6; text-align: left;">
-                        [Associate Pastor bio and background information will go here.]
+                        Danika is also on staff at Wellspring. She gives oversight to all student ministries, events, outreaches, and missions projects. Danika loves connecting with the Women of Wellspring.
+                    </p>
+                    <p style="color: #87CEEB; margin-top: 12px; font-size: 0.9rem;">
+                        Danika@WellspringChurch.cc
                     </p>
                 </div>
-                
                 <div class="service-card" style="text-align: center;">
-                    <img src="assets/images/avatar.5.png" alt="Youth Pastor" class="service-image unselectable" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin: 0 auto 20px;">
-                    <h3 style="color: #87CEEB; margin-bottom: 8px;">[Youth Pastor Name]</h3>
-                    <h4 style="color: #666; margin-bottom: 16px; font-weight: 500;">Youth Pastor</h4>
+                    <img src="assets/images/team_kenny.avif" alt="Pastor Kenny Martin" class="service-image unselectable" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin: 0 auto 20px;">
+                    <h3 style="color: #87CEEB; margin-bottom: 8px;">Pastor Kenny Martin</h3>
+                    <h4 style="color: #666; margin-bottom: 16px; font-weight: 500;">Associate Pastor/Legacy Adults</h4>
                     <p style="color: #666; line-height: 1.6; text-align: left;">
-                        [Youth Pastor bio and background information will go here.]
+                        Pastor Kenny joined our team in January 2024. He and his wife, Regina, have been in full-time ministry for over 34 years. Pastor Ryan is their oldest son, and their youngest son, Tyler, is a missionary. They have three grandsons!
+                    </p>
+                    <p style="color: #87CEEB; margin-top: 12px; font-size: 0.9rem;">
+                        PastorKenny@WellspringChurch.cc
+                    </p>
+                </div>
+                <div class="service-card" style="text-align: center;">
+                    <img src="assets/images/avatar.5.png" alt="Pastor Jaela" class="service-image unselectable" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin: 0 auto 20px;">
+                    <h3 style="color: #87CEEB; margin-bottom: 8px;">Pastor Jaela Pruitt</h3>
+                    <h4 style="color: #666; margin-bottom: 16px; font-weight: 500;">Worship Pastor</h4>
+                    <p style="color: #666; line-height: 1.6; text-align: left;">
+                        Pastor Jaela leads our worship ministry with passion and excellence, helping our congregation connect with God through music and worship.
                     </p>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Ministry Leaders Section -->
+    </section><!-- Ministry Leaders Section -->
     <section class="values-section">
         <div class="section-header">
-            <h2 class="section-title">Ministry Leaders</h2>
-            <div class="section-subtitle">The dedicated volunteers who lead our various ministries and programs</div>
+            <h2 class="section-title">Lead Team </h2>
+            <div class="section-subtitle">The dedicated leaders who serve our various ministries and programs</div>
         </div>
-        
-        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+          <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
             <div class="services-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
                 <div class="service-card" style="text-align: center;">
-                    <img src="assets/images/avatar.5.png" alt="Worship Leader" class="service-image unselectable" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin: 0 auto 16px;">
-                    <h3 style="color: #87CEEB; margin-bottom: 6px;">[Worship Leader Name]</h3>
-                    <h4 style="color: #666; margin-bottom: 12px; font-weight: 500;">Worship Leader</h4>
+                    <img src="assets/images/avatar.5.png" alt="Heath and Mindy Middleton" class="service-image unselectable" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin: 0 auto 16px;">
+                    <h3 style="color: #87CEEB; margin-bottom: 6px;">Heath & Mindy Middleton</h3>
+                    <h4 style="color: #666; margin-bottom: 12px; font-weight: 500;">Missions Team Directors</h4>
                     <p style="color: #666; line-height: 1.6; font-size: 0.95rem;">
-                        [Brief description of worship leader role and background]
+                        Heath and Mindy lead our missions ministry, coordinating local and global outreach efforts to spread God's love and serve those in need.
                     </p>
                 </div>
                 
                 <div class="service-card" style="text-align: center;">
-                    <img src="assets/images/avatar.5.png" alt="Children's Ministry Leader" class="service-image unselectable" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin: 0 auto 16px;">
-                    <h3 style="color: #87CEEB; margin-bottom: 6px;">[Children's Leader Name]</h3>
-                    <h4 style="color: #666; margin-bottom: 12px; font-weight: 500;">Children's Ministry</h4>
+                    <img src="assets/images/avatar.5.png" alt="Shane and Jill Hale" class="service-image unselectable" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin: 0 auto 16px;">
+                    <h3 style="color: #87CEEB; margin-bottom: 6px;">Shane & Jill Hale</h3>
+                    <h4 style="color: #666; margin-bottom: 12px; font-weight: 500;">Marriage Ministry</h4>
                     <p style="color: #666; line-height: 1.6; font-size: 0.95rem;">
-                        [Brief description of children's ministry leader role and background]
+                        Shane and Jill are passionate about strengthening marriages and families, providing guidance and support for couples at all stages of their journey.
                     </p>
                 </div>
                 
                 <div class="service-card" style="text-align: center;">
-                    <img src="assets/images/avatar.5.png" alt="Small Groups Leader" class="service-image unselectable" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin: 0 auto 16px;">
-                    <h3 style="color: #87CEEB; margin-bottom: 6px;">[Small Groups Leader Name]</h3>
-                    <h4 style="color: #666; margin-bottom: 12px; font-weight: 500;">Small Groups</h4>
+                    <img src="assets/images/avatar.5.png" alt="Evan and Faith Moak" class="service-image unselectable" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin: 0 auto 16px;">
+                    <h3 style="color: #87CEEB; margin-bottom: 6px;">Evan & Faith Moak</h3>
+                    <h4 style="color: #666; margin-bottom: 12px; font-weight: 500;">Student Ministry Youth Leaders</h4>
                     <p style="color: #666; line-height: 1.6; font-size: 0.95rem;">
-                        [Brief description of small groups leader role and background]
-                    </p>
-                </div>
-                
-                <div class="service-card" style="text-align: center;">
-                    <img src="assets/images/avatar.5.png" alt="Outreach Leader" class="service-image unselectable" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin: 0 auto 16px;">
-                    <h3 style="color: #87CEEB; margin-bottom: 6px;">[Outreach Leader Name]</h3>
-                    <h4 style="color: #666; margin-bottom: 12px; font-weight: 500;">Community Outreach</h4>
-                    <p style="color: #666; line-height: 1.6; font-size: 0.95rem;">
-                        [Brief description of outreach leader role and background]
-                    </p>
-                </div>
-                
-                <div class="service-card" style="text-align: center;">
-                    <img src="assets/images/avatar.5.png" alt="Admin Leader" class="service-image unselectable" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin: 0 auto 16px;">
-                    <h3 style="color: #87CEEB; margin-bottom: 6px;">[Admin Leader Name]</h3>
-                    <h4 style="color: #666; margin-bottom: 12px; font-weight: 500;">Administration</h4>
-                    <p style="color: #666; line-height: 1.6; font-size: 0.95rem;">
-                        [Brief description of administration leader role and background]
-                    </p>
-                </div>
-                
-                <div class="service-card" style="text-align: center;">
-                    <img src="assets/images/avatar.5.png" alt="Missions Leader" class="service-image unselectable" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin: 0 auto 16px;">
-                    <h3 style="color: #87CEEB; margin-bottom: 6px;">[Missions Leader Name]</h3>
-                    <h4 style="color: #666; margin-bottom: 12px; font-weight: 500;">Missions</h4>
-                    <p style="color: #666; line-height: 1.6; font-size: 0.95rem;">
-                        [Brief description of missions leader role and background]
+                        Evan and Faith are dedicated to mentoring and discipling our youth, creating engaging programs that help students grow in their faith and relationships.
                     </p>
                 </div>
             </div>
