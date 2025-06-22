@@ -1264,6 +1264,13 @@ body {
 }
 
 /* Contact Form Styles */
+.contact-main-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
 .contact-form-container {
     background: white;
     padding: 32px;
@@ -1344,14 +1351,14 @@ body {
 
 /* Responsive Contact Form */
 @media (max-width: 768px) {
+    .contact-main-grid {
+        grid-template-columns: 1fr !important;
+        gap: 32px !important;
+    }
+    
     .contact-form-container,
     .map-container {
         padding: 24px;
-    }
-    
-    div[style*="grid-template-columns: 1fr 1fr"] {
-        grid-template-columns: 1fr !important;
-        gap: 32px !important;
     }
     
     .form-group input,

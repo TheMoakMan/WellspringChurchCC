@@ -98,8 +98,14 @@ The navigation has specific mobile/desktop behavior:
 - **Optional Fields**: Phone number and subject selection
 - **Backend Ready**: Form structure ready for backend integration
 - **User Feedback**: Success/error messages with auto-dismiss
-- **Form Reset**: Automatic form clearing after successful submission
-- **Development Mode**: Console logging for testing and development
+- **Natural Layout**: Map appears first in HTML order (left on desktop, top on mobile)
+- **Simple Responsive**: CSS Grid automatically stacks on mobile without order manipulation
+
+#### Mobile-First Design Updates (Latest):
+- **Grid Layout**: CSS Grid with responsive column structure
+- **Natural Stacking**: HTML order determines mobile layout (map top, form bottom)
+- **Touch-Friendly**: 16px font size on form inputs to prevent iOS zoom
+- **Clean Structure**: No complex CSS order manipulation needed
 
 #### Technical Implementation:
 - **HTML**: Semantic form structure with proper field types
@@ -256,162 +262,27 @@ The website is now feature-complete with all main pages implemented using real c
 - `src/js/messages.js` - Removed Boxcast code, enhanced date formatting
 - `src/copilot.md` - Documentation updates
 
-## Next Steps & Future Enhancements
+## Recent Changes
 
-### 🔧 FINAL POLISH & REVIEW
-1. **Cross-browser testing**: Ensure compatibility across devices
-2. **Performance optimization**: Image compression, load times
-3. **Accessibility audit**: WCAG compliance check
-4. **SEO optimization**: Meta tags, structured data
-5. **Content updates**: Keep sermon archives current
+### January 22, 2025 - Contact Page Mobile Layout Enhancement
+**Files Modified:**
+- `contact.html` - Restructured form and map sections
+- `css/styles.css` - Updated grid layout and mobile responsive behavior
+- `copilot.md` - Updated documentation
 
-### 🚀 POTENTIAL FUTURE FEATURES
-- **Event calendar**: Church events and special services
-- **Blog/News section**: Church announcements and updates
-- **Online directory**: Member directory (password protected)
-- **Prayer requests**: Submission form for prayer needs
-- **Small groups**: Directory and signup for discipleship groups
+**Changes Made:**
+1. **HTML Structure**: Map section placed first in HTML order for natural layout flow
+2. **CSS Grid Implementation**: Simple responsive grid that stacks to single column on mobile
+3. **Natural Responsive Behavior**: Map appears left on desktop, top on mobile without CSS tricks
+4. **Touch-Friendly Forms**: Ensured 16px font size to prevent iOS zoom behavior
+5. **Simplified Code**: Removed unnecessary CSS order manipulation
 
-## Key Team Members & Contact Info
-- **Pastor Ryan Martin**: Lead Pastor - PastorRyan@WellspringChurch.cc
-- **Pastor Kenny Martin**: Associate Pastor/Legacy Adults - PastorKenny@WellspringChurch.cc
-- **Danika Martin**: Director of Ministries - Danika@WellspringChurch.cc
-- **Pastor Jaela Pruitt**: Worship Pastor
-
-## Worship Schedule
-- **Weekend Worship**: Sunday @ 9:30am
-- **Sunday School**: Sunday @ 11:00am  
-- **Mid-Week Service**: Wednesday @ 6:00pm
-
-## Technical Notes
-
-### Image Assets
-- **Logo**: wc_logo.avif (wellspring logo)
-- **Team Photos**: team_ryan.avif, team_kenny.avif, team_danika.avif
-- **Placeholder**: avatar.5.png (for missing team photos)
-- **Hero Images**: hero.avif (main), services_*.avif (various)
-
-### CSS Classes to Remember
-- `.desktop-only` / `.mobile-only`: For responsive navigation
-- `.scripture-text`: For scripture quotations styling
-- `.service-card`: Main card component
-- `.nav-floating`: Navigation bar
-- `.hero-section`: Hero sections (some pages have smaller heroes)
-
-### Footer Consistency
-- **"WELLSPRING CHURCH" text**: Must match header styling
-- **Contact Info**: Phone, address, email with proper icons
-- **Social Links**: Facebook, Instagram, YouTube
-- **Guest Connect**: Link to Church Center
-
-## Development Guidelines
-
-### When Adding New Content:
-1. **Always fetch real content** from church website when possible
-2. **Maintain responsive navigation** pattern (desktop dropdown, mobile separate links)
-3. **Use consistent styling** with existing card-based design
-4. **Keep church contact info accurate** across all pages
-5. **Test mobile responsiveness** for all new sections
-
-### Navigation Updates:
-When updating any page navigation, ensure ALL pages have the consistent pattern:
-```html
-<div class="nav-dropdown desktop-only">...</div>
-<a href="about.html" class="nav-link mobile-only">Values</a>
-<a href="team.html" class="nav-link mobile-only">Team</a>
-```
-
-### Content Fetching:
-Use the fetch_webpage tool to get real content from:
-- Main site: https://www.wellspringchurch.cc/
-- Specific pages: /about, /ministries, /giving, /contact, /messages
-
-## Next Session Priorities
-1. **Complete Messages Page**: Fetch and implement real sermon/message content
-2. **Complete Contact Page**: Update with real contact forms and information  
-3. **Final Testing**: Ensure all responsive behavior works correctly
-4. **Content Review**: Verify all real church information is accurate and up-to-date
-
-## File Structure
-```
-src/
-├── index.html (✅ Complete)
-├── about.html (✅ Complete) 
-├── team.html (✅ Complete)
-├── ministries.html (✅ Complete)
-├── giving.html (✅ Complete)
-├── messages.html (🚧 Needs content)
-├── contact.html (🚧 Needs content)
-├── css/
-│   ├── styles.css (main styles)
-│   └── animations.css
-├── js/
-│   ├── main.js
-│   ├── interactive.js
-│   └── scroll-effects.js
-├── assets/
-│   ├── images/ (team photos, logos, hero images)
-│   └── fonts/
-└── copilot.md (this file)
-```
-
----
-**Last Updated**: December 2024
-**Church Website**: https://www.wellspringchurch.cc/
-**Project Status**: ~80% Complete - 5/7 main pages finished
-
-### Messages Page Technical Implementation
-- **Boxcast Integration**: Live streaming embed for weekend services
-- **YouTube Embeds**: Responsive iframe containers with 16:9 aspect ratio
-- **Video Grid**: Auto-fit grid layout with minimum 350px card width
-- **Real Data**: All video IDs, titles, scripture references, and durations from church website
-- **External Links**: Direct links to YouTube channel and social media
-- **Mobile Optimization**: Videos scale properly on all screen sizes
-
-#### 🆕 Dynamic Content Features (messages.js)
-- **YouTube RSS Integration**: Automatically loads recent videos without API key
-- **Boxcast Channel Detection**: Console instructions for finding correct channel ID
-- **Dynamic Video Updates**: Can refresh video content from YouTube channel
-- **Loading States**: Visual indicators while videos load
-- **Error Handling**: Graceful fallbacks when APIs are unavailable
-- **Local Storage**: Saves Boxcast configuration for future visits
-
-#### 🎯 Boxcast Integration Analysis (SOLVED):
-**Discovered from HTTP request analysis:**
-- **Channel ID**: `xelumtbow3yvccvbazko` (confirmed)
-- **Broadcast ID**: `fepy4qhf9q67zkx2jyis` (specific stream)
-- **Host Restriction**: `www-wellspringchurch-cc.filesusr.com` (Wix domain)
-- **Domain Lock**: Boxcast requires specific host parameter to work
-
-**Why it fails on external domains:**
-- Host parameter validation prevents cross-domain embeds
-- Referrer header restrictions from Wix platform
-- CORS policies block external iframe access
-
-**Solutions implemented:**
-1. **Broadcast-specific URLs** with all required parameters
-2. **Multiple fallback URLs** for different embed formats
-3. **Automatic YouTube Live fallback** when Boxcast fails
-4. **Error handling** with progressive URL testing
-5. **Proxy embed approach** for domain restriction bypass
-
-#### Setup Instructions for Live Features:
-1. **Boxcast Channel ID**: ✅ **SOLVED** 
-   - Channel: `xelumtbow3yvccvbazko`
-   - Broadcast: `fepy4qhf9q67zkx2jyis`
-   - Host: `www-wellspringchurch-cc.filesusr.com`
-   - **Issue**: Domain restrictions prevent external embedding
-
-2. **YouTube Live (RECOMMENDED)**:
-   - Automatic fallback when Boxcast fails
-   - Better cross-domain compatibility
-   - Run: `messagesHandler.setupYouTubeLiveEmbed()`
+**Technical Details:**
+- Desktop: Map (left) | Form (right) 
+- Mobile: Map (top) → Form (bottom)
+- Natural HTML document flow determines layout
+- CSS Grid handles responsive behavior automatically
 
 3. **Troubleshooting Commands**:
    - `messagesHandler.tryAlternativeBoxcastUrl()` - Try broadcast URL
    - `messagesHandler.testBoxcastConnection()` - Test all endpoints
-   - `switchToYouTubeLive()` - Quick switch to YouTube
-
-4. **CORS Proxy**: 
-   - For production, replace allorigins.win with your own CORS proxy
-   - Or implement server-side YouTube RSS fetching
