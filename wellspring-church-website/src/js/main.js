@@ -14,6 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.classList.add('loaded');
 });
 
+// Export navigation initialization for component loader
+window.initializeNavigation = initializeNavigation;
+
 // Navigation Functions
 function initializeNavigation() {
     const nav = document.querySelector('.nav-floating');
