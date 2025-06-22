@@ -45,15 +45,99 @@
             </h1>
             <p class="hero-subtitle">We'd love to hear from you and help you take your next step</p>
         </div>
-    </section>
-
-    <!-- Contact Information Section -->
+    </section>    <!-- Contact Information Section -->
     <section class="services-section">
         <div class="section-header">
             <h2 class="section-title">Get In Touch</h2>
             <div class="section-subtitle">Whether you're new to our church family or have been with us for years, we're here to help you connect and grow in your faith journey.</div>
         </div>
-        <div class="services-grid" style="grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));">
+        
+        <!-- Contact Form and Map Container -->
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 60px;">
+                
+                <!-- Contact Form -->
+                <div class="contact-form-container">
+                    <h3 style="color: #87CEEB; margin-bottom: 24px; font-size: 1.5rem;">Send Us a Message</h3>
+                    <p style="color: #666; margin-bottom: 32px;">If you have any questions, please email us using the form below.</p>
+                    
+                    <form class="contact-form" action="#" method="POST">
+                        <div class="form-group">
+                            <label for="firstName">First Name *</label>
+                            <input type="text" id="firstName" name="firstName" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="lastName">Last Name *</label>
+                            <input type="text" id="lastName" name="lastName" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <select id="subject" name="subject">
+                                <option value="">Select a topic...</option>
+                                <option value="general">General Question</option>
+                                <option value="prayer">Prayer Request</option>
+                                <option value="visit">Planning a Visit</option>
+                                <option value="ministries">Ministries & Groups</option>
+                                <option value="youth">Youth & Children's Ministry</option>
+                                <option value="baptism">Baptism</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" rows="5" required placeholder="Please share your question or message..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary" style="width: 100%; padding: 16px;">
+                            Send Message
+                        </button>
+                        
+                        <p style="font-size: 0.9rem; color: #999; margin-top: 16px; text-align: center;">
+                            We typically respond within 24 hours
+                        </p>
+                    </form>
+                </div>
+                
+                <!-- Map Placeholder -->
+                <div class="map-container">
+                    <h3 style="color: #87CEEB; margin-bottom: 24px; font-size: 1.5rem;">Find Us</h3>
+                    <div class="map-placeholder" style="width: 100%; height: 400px; background: #f8f9fa; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-direction: column; border: 2px dashed #87CEEB; margin-bottom: 24px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="#87CEEB" class="bi bi-geo-alt" viewBox="0 0 16 16" style="margin-bottom: 16px;">
+                            <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10"/>
+                            <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+                        </svg>
+                        <p style="color: #87CEEB; font-weight: 600; margin-bottom: 8px;">Google Maps Integration</p>
+                        <p style="color: #666; text-align: center; font-size: 0.9rem;">Map will be added when Google Maps API is configured</p>
+                    </div>
+                    
+                    <div style="background: white; padding: 24px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                        <h4 style="color: #87CEEB; margin-bottom: 16px;">Address & Directions</h4>
+                        <p style="font-weight: 600; margin-bottom: 8px;">600 North Division Street<br>Blytheville, AR 72315</p>
+                        <p style="color: #666; font-size: 0.9rem; margin-bottom: 16px;">Located in the heart of Blytheville, easily accessible from Highway 61.</p>
+                        
+                        <a href="https://www.google.com/maps/place/600+N+Division+St,+Blytheville,+AR+72315" target="_blank" class="btn-outline" style="width: 100%; text-align: center;">
+                            Get Directions
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Info Cards -->
+        <div class="services-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
             <div class="service-card">
                 <div class="service-name" style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#87CEEB" class="bi bi-telephone" viewBox="0 0 16 16">
@@ -83,23 +167,6 @@
                 </div>
                 <div class="service-additional">
                     <strong>We typically respond within 24 hours</strong>
-                </div>
-            </div>
-
-            <div class="service-card">
-                <div class="service-name" style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#87CEEB" class="bi bi-geo-alt" viewBox="0 0 16 16">
-                        <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10"/>
-                        <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
-                    </svg>
-                    Visit Us
-                </div>
-                <div class="service-description">
-                    <p style="font-size: 1.2rem; font-weight: 600; color: #87CEEB; margin-bottom: 16px;">600 North Division Street<br>Blytheville, AR 72315</p>
-                    <p>We're located in the heart of Blytheville and would love to welcome you to our church family this Sunday!</p>
-                </div>
-                <div class="service-additional">
-                    <strong>Sundays @ 9:30 AM - Everyone Welcome!</strong>
                 </div>
             </div>
 
@@ -204,10 +271,9 @@
         <div class="footer-bottom">
             <p>&copy; 2025 Wellspring Church. Growing, Equipping and Sending Disciples of Jesus.</p>
         </div>
-    </footer>
-
-    <script src="js/main.js"></script>
+    </footer>    <script src="js/main.js"></script>
     <script src="js/scroll-effects.js"></script>
     <script src="js/interactive.js"></script>
+    <script src="js/contact.js"></script>
 </body>
 </html>
